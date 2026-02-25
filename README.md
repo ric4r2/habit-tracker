@@ -1,10 +1,18 @@
 # Habit Tracker App
 
+![Status](https://img.shields.io/badge/Status-In%20Progress-yellow)
+![Platform](https://img.shields.io/badge/Platform-Android-green)
+![Language](https://img.shields.io/badge/Language-Kotlin-blue)
+
 A modern Android app built with Jetpack Compose to track habits with individual timers for each activity.
+
+## Project Status
+
+This project is currently **in active development**. Features and functionality are being added and refined.
 
 ## Features
 
-✨ **Core Features:**
+**Core Features:**
 - Create and manage multiple habits
 - Individual timer for each habit
 - Track total time spent on each habit
