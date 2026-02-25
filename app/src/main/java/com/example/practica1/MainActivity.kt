@@ -7,11 +7,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.platform.LocalContext
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.practica1.ui.screens.HabitTrackerScreen
 import com.example.practica1.ui.theme.Practica1Theme
 import com.example.practica1.viewmodel.HabitViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.initializer
+import androidx.lifecycle.viewmodel.viewModelFactory
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +27,14 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val viewModel: HabitViewModel = viewModel()
+                    val context = LocalContext.current
+                    val viewModel: HabitViewModel = viewModel(
+                        factory = viewModelFactory {
+                            initializer {
+                                HabitViewModel(context.applicationContext as android.app.Application)
+                            }
+                        }
+                    )
                     HabitTrackerScreen(viewModel = viewModel)
                 }
             }
